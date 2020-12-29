@@ -13,7 +13,7 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 RUN apt-get update && apt-get install -y supervisor && apt-get install -y nginx && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && echo "daemon off;" >> /etc/nginx/nginx.conf
 
 RUN mkdir -p /var/log/supervisor
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 EXPOSE 80 22 443
 
