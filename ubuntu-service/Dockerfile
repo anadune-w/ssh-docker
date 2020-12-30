@@ -1,20 +1,13 @@
-FROM ubuntu:20.04
+FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y openssh-server
-RUN mkdir /var/run/sshd
-RUN echo 'root:root' | chpasswd
-RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN apt update && apt install  openssh-server sudo -y
 
-RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 test 
 
-ENV NOTVISIBLE "in users profile"
-RUN echo "export VISIBLE=now" >> /etc/profile
+RUN  echo 'test:test' | chpasswd
 
-RUN apt-get update && apt-get install -y supervisor && apt-get install -y nginx && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && echo "daemon off;" >> /etc/nginx/nginx.conf
+RUN service ssh start
 
-RUN mkdir -p /var/log/supervisor
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+EXPOSE 22
 
-EXPOSE 80 22 443
-
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/sbin/sshd","-D"]
