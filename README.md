@@ -1,6 +1,6 @@
 # ubuntu-sshd-nginx
 
-Create dockerized SFTP host built on top of [official Ubuntu](https://registry.hub.docker.com/_/ubuntu/) image.
+Create dockerized SFTP host built on top of [official Ubuntu](https://registry.hub.docker.com/_/ubuntu/) image. The image is using `supervisord` to be able to control multiple binaries on the host machine during startup, as `dockerfile` is not supporting multiple CMD or ENTRYPOINTS directly from its native file config. 
 
 ## Image components
 
