@@ -1,5 +1,7 @@
 FROM ubuntu:latest
 
+LABEL release-date="2020-12-30" maintainer="Dima Smolskyi <d.smolskyi@gmail.com>"
+
 RUN apt update && apt install  openssh-server sudo -y
 
 RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 test 
