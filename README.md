@@ -15,3 +15,22 @@ Configurations:
 * Exposed port: 22
 * User: test
 * Password: test
+
+## Usage
+
+Pull docker image from Docker Hub
+```
+docker pull dimasmol/ssh-docker
+```
+Run a container
+```
+dimasmol/ssh-docker
+```
+Get an IP Address of your container
+```
+docker inspect <CONTAINER ID> | grep -w "IPAddress" | awk '{ print $2 }' | head -n 1 | cut -d "," -f1
+```
+SSH into running container using previously exposed port (22). Password: test
+```
+ssh test@<CONTAINER IP ADDRESS> -p 22
+```
