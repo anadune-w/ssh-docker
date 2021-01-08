@@ -24,7 +24,7 @@ docker pull dimasmol/ssh-docker
 ```
 Run a container
 ```
-dimasmol/ssh-docker
+docker run dimasmol/ssh-docker
 ```
 Get an IP Address of your container
 ```
