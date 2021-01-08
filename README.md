@@ -5,7 +5,7 @@ Create dockerized OpenSSH-Server built on top of [official Ubuntu](https://regis
 ## Image components
 
 Base distribution:
-* [Ubuntu:latest](https://packages.ubuntu.com/focal/ubuntu-minimal)
+* [Ubuntu:20.04](https://packages.ubuntu.com/focal/ubuntu-minimal)
 
 Additional services:
 * [OpenSSH Server](https://ubuntu.com/server/docs/service-openssh)
