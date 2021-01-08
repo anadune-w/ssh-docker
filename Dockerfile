@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:20.04
 
 LABEL release-date="2020-12-30" maintainer="Dima Smolskyi <d.smolskyi@gmail.com>"
 
